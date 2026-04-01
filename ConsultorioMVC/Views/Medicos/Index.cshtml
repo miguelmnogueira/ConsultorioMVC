@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ConsultorioMVC.Models.MedicoView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="fw-medium">Lista de Médicos</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="CriarMedico">Criar +</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crm)
+            </th>
+            <th>
+                Nome do Consultório
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.Crm
+                </td>
+                <td>
+                    @item.Consultorio.Nome
+                </td>
+                <td>
+                    <a href="/Medicos/EditarMedico/@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/Medicos/DeletarMedico/@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

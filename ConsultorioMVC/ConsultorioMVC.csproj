@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\MedicosControllerr\**" />
+    <Content Remove="Views\MedicosControllerr\**" />
+    <EmbeddedResource Remove="Views\MedicosControllerr\**" />
+    <None Remove="Views\MedicosControllerr\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
   </ItemGroup>
 

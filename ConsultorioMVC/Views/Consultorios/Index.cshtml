@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ConsultorioMVC.Models.ConsultorioView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="fw-medium">Lista de Consultorios</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="CriarConsultorio">Criar +</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.Cep
+                </td>
+                <td>
+                    @item.Logradouro
+                </td>
+                <td>
+                    @item.Bairro
+                </td>
+                <td>
+                    @item.Uf
+                </td>
+                <td>
+                    @item.Localidade
+                </td>
+                <td>
+                    @item.Numero
+                </td>
+                <td>
+                    <a href="/Consultorios/EditarConsultorio/@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/Consultorios/DeletarConsultorio/@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
