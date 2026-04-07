@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ConsultorioMVC.Models.ConsultaView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="fw-medium">Lista de Consultas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="CriarConsulta">Criar +</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.PacienteId
+                </td>
+                <td>
+                    @item.MedicoId
+                </td>
+                <td>
+                    @item.DataHora
+                </td>
+                <td>
+                    @item.Observacoes
+                </td>
+               
+                <td>
+                    <a href="/Consultas/EditarConsulta/@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="/Consultas/DeletarConsulta/@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

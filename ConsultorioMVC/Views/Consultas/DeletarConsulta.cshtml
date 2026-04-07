@@ -1,0 +1,28 @@
+﻿@model ConsultorioMVC.Models.ConsultaView
+
+<h1>Deletar Paciente</h1>
+
+<h4 class="text-danger">Tem certeza que deseja deletar o consultorio?</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Paciente ID</dt>
+        <dd class="col-sm-10">@Model.PacienteId</dd>
+        <dt class="col-sm-2">Medico ID</dt>
+        <dd class="col-sm-10">@Model.MedicoId</dd>
+        <dt class="col-sm-2">Data Hora</dt>
+        <dd class="col-sm-10">@Model.DataHora</dd>
+        <dt class="col-sm-2">Observações</dt>
+        <dd class="col-sm-10">@Model.Observacoes</dd>
+
+
+    </dl>
+
+    <form asp-action="Deletar" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Deletar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+
+</div>

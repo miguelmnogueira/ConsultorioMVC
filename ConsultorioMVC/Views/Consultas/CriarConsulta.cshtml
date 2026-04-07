@@ -1,0 +1,45 @@
+﻿@model ConsultorioMVC.Models.ConsultaView
+
+<h1>Criar Consulta</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CriarConsulta" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="PacienteId" class="form-label">Paciente</label>
+                <select asp-for="PacienteId" class="form-control">
+                    @foreach (var p in ViewBag.Pacientes)
+                    {
+                        <option value="@p.Id">@p.Nome</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="MedicoId" class="form-label">Médico</label>
+                <select asp-for="MedicoId" class="form-control">
+                    @foreach (var m in ViewBag.Medicos)
+                    {
+                        <option value="@m.Id">@m.Nome</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DataHora" class="form-label"></label>
+                <input asp-for="DataHora" type="datetime-local" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Observacoes" class="form-label"></label>
+                <textarea asp-for="Observacoes" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
